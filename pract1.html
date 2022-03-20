@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="shortcut icon" href="./img/js.svg" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&family=League+Spartan:wght@100;400;700;900&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;400;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/styles.css">
+
+  <title>Ejercicio 2 jsp</title>
+</head>
+<body>
+
+  <nav class="main-nav">
+
+    <div class="info">
+      <i class="fa-solid fa-info info__icon"></i>
+
+      <p class="info__text">
+        Jesus Suarez Licea<br>
+        4°"F"
+      </p>
+    </div>
+
+    <div class="menu">
+      <a href="./index.html"><i class="fa-solid fa-house info__icon"></i></a>
+
+      <div class="menu-nav">
+        <ul class="menu-nav__list">
+          <li class="menu-nav__item"><a href="pract1.html" class="menu-nav__link">Calculo del IMC</a></li>
+          <li class="menu-nav__item"><a href="pract2.html" class="menu-nav__link">Conversión de euros a pesos</a></li>
+          <li class="menu-nav__item"><a href="pract3.html" class="menu-nav__link">Cálculo de la distancia entre dos puntos</a></li>
+          <li class="menu-nav__item"><a href="pract4.html" class="menu-nav__link">Cálculo del área de un circulo</a></li>
+          <li class="menu-nav__item"><a href="pract5.html" class="menu-nav__link">Cálculo del área de un trapecio</a></li>
+          <li class="menu-nav__item"><a href="pract6.html" class="menu-nav__link">Conversión de millas a metros</a></li>
+          <li class="menu-nav__item"><a href="pract7.html" class="menu-nav__link">Conversión de grados °C a °F</a></li>
+          <li class="menu-nav__item"><a href="pract8.html" class="menu-nav__link">Cálculo del volumen del prima rectangular</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+
+
+  
+
+  <main>
+    <h2>a) Calculo del IMC</h2>
+    <form class="form-IMC">
+      <input class="form-IMC__input-diplay" type="text" placeholder="IMC" disabled id="pantalla">
+      <input class="form-IMC__input-diplay" type="text" placeholder="Clasificacion" disabled id="pantalla-clasificacion">
+      <div class="form-IMC__comtenedor">
+        <p class="form-IMC__text">Peso en Kg</p>
+        <input class="form-IMC__input-num" type="number" placeholder="Ejemplo: 73" id="peso">
+      </div>
+      <div class="form-IMC__comtenedor">
+        <p class="form-IMC__text">Altura en Metros</p>
+        <input class="form-IMC__input-num" type="number" placeholder="Ejemplo: 1.67" id="altura">
+      </div>
+  
+      <input class="form-IMC__input-button" type="button" value="Calcular" onclick="calcIMC()">
+    </form>
+  </main>
+
+
+  <script>
+
+    const display = document.querySelector('#pantalla');
+    const displayClas = document.querySelector('#pantalla-clasificacion');
+
+    function calcIMC() {
+      const peso = Number(document.querySelector('#peso').value);
+      const altura = Number(document.querySelector('#altura').value);
+
+      const IMC = peso/altura**2;
+
+      display.value = IMC;
+
+      if (IMC < 18.5) {
+        displayClas.value = "Bajo peso"
+      }
+      else if (IMC >= 18.5 && IMC < 25) {
+        displayClas.value = "Normal"
+      }
+      else if (IMC >= 25 && IMC < 30) {
+        displayClas.value = "Sobrepeso"
+      }
+      else if (IMC >= 30) {
+        displayClas.value = "Obesidad"
+      }
+
+
+    };
+  </script>
+  <script src="https://kit.fontawesome.com/20dbefd043.js" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
